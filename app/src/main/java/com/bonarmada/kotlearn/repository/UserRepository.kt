@@ -15,8 +15,8 @@ class UserRepository @Inject
 internal constructor(private val remote: UserRemote, val dao: UserDao) {
 
     fun test(){
-        Log.e("hehe", remote.toString())
-        Log.e("hehe", dao.toString())
+        Log.e("test injector", remote.toString())
+        Log.e("test injector", dao.toString())
     }
 
 

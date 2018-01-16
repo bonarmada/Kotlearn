@@ -37,7 +37,7 @@ class LoginActivity : AppCompatActivity() {
         userViewModel = ViewModelProviders.of(this, viewModelFactory).get(UserViewModel::class.java)
 
         userViewModel.loggedInUser.observe(this, Observer { it ->
-            if (it != null) {
+            it?.let {
                 startActivity(Intent(this, MainActivity::class.java))
                 finish()
             }
