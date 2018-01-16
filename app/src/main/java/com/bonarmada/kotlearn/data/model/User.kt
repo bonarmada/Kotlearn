@@ -1,4 +1,4 @@
-package com.bonarmada.kotlearn.model
+package com.bonarmada.kotlearn.data.model
 
 import com.google.gson.annotations.SerializedName
 import io.realm.RealmObject
@@ -6,12 +6,13 @@ import io.realm.annotations.PrimaryKey
 
 open class User : RealmObject() {
 
-    @SerializedName("last_name")
-    var lastName: String? = null
-
     @PrimaryKey
     @SerializedName("id")
     var id: Int = 0
+
+    @SerializedName("last_name")
+    var lastName: String? = null
+
 
     @SerializedName("first_name")
     var firstName: String? = null

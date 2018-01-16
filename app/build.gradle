@@ -42,13 +42,10 @@ dependencies {
 
     // Dagger 2
     implementation "com.google.dagger:dagger:$dagger_version"
+    implementation "com.google.dagger:dagger-android:$dagger_version"
+    implementation "com.google.dagger:dagger-android-support:$dagger_version"
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
-
-//    compile 'com.google.dagger:dagger:2.11'
-//    annotationProcessor 'com.google.dagger:dagger-compiler:2.11'
-//    provided 'javax.annotation:jsr250-api:1.0'
-//    implementation 'com.google.dagger:dagger:2.11'
-//    kapt 'com.google.dagger:dagger-compiler:2.11'
+    kapt "com.google.dagger:dagger-android-processor:$dagger_version"
 
     // Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
@@ -75,10 +72,35 @@ dependencies {
 
 
     /*
+     * Architecture components
+     */
+
+    // ViewModel and LiveData
+    implementation "android.arch.lifecycle:extensions:1.0.0"
+    annotationProcessor "android.arch.lifecycle:compiler:1.0.0"
+
+    // Room
+    implementation "android.arch.persistence.room:runtime:1.0.0"
+    annotationProcessor "android.arch.persistence.room:compiler:1.0.0"
+
+    // Paging
+    implementation "android.arch.paging:runtime:1.0.0-alpha4-1"
+
+
+
+    /*
      * These are tests
      */
     testImplementation 'junit:junit:4.12'
+
+    // Test helpers for LiveData
+    testImplementation "android.arch.core:core-testing:1.0.0"
+
+    // Test helpers for Room
+    testImplementation "android.arch.persistence.room:testing:1.0.0"
+
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
 
 }

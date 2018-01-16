@@ -2,7 +2,7 @@ package com.bonarmada.kotlearn.data.dao
 
 import io.realm.Realm
 import io.realm.RealmModel
-import io.realm.RealmObject
+import io.realm.RealmResults
 
 
 /**
@@ -10,8 +10,10 @@ import io.realm.RealmObject
  */
 
 
-open class DaoImpl<Type : RealmObject>(private val type: Class<Type>) : Dao<Type> {
+open class DaoImpl<Type : RealmModel>(private val type: Class<Type>) : Dao<Type> {
     private val realm = Realm.getDefaultInstance()
+
+    fun <T : RealmModel> RealmResults<T>.asLiveData() = LiveRealmData<T>(this)
 
     override val id: Int?
         get() {
@@ -23,10 +25,14 @@ open class DaoImpl<Type : RealmObject>(private val type: Class<Type>) : Dao<Type
             return null
         }
 
+
+    fun getAsLiveData() = realm.where(type).findAllAsync().asLiveData()
+
     override fun get(): List<Type> {
         val all = realm.where(type).findAll()
         return all.subList(0, all.size)
     }
+
 
     override fun get(id: Int): Type? {
         return realm.where(type).equalTo("id", id).findFirst();

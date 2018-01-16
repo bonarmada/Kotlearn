@@ -1,7 +1,7 @@
 package com.bonarmada.kotlearn.data.remote
 
-import com.bonarmada.kotlearn.model.Password
-import com.bonarmada.kotlearn.model.User
+import com.bonarmada.kotlearn.data.model.Password
+import com.bonarmada.kotlearn.data.model.User
 import io.reactivex.Single
 import retrofit2.Response
 import retrofit2.http.Body

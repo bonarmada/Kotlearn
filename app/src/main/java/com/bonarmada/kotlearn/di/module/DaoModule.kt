@@ -2,7 +2,6 @@ package com.bonarmada.kotlearn.di.module
 
 import com.bonarmada.kotlearn.data.dao.UserDao
 import com.bonarmada.kotlearn.di.scope.AppScope
-import com.bonarmada.kotlearn.model.User
 import dagger.Module
 import dagger.Provides
 

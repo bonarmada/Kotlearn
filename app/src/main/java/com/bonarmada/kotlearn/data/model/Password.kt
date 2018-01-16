@@ -1,4 +1,4 @@
-package com.bonarmada.kotlearn.model
+package com.bonarmada.kotlearn.data.model
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
